@@ -35,6 +35,7 @@ listsApi.put(`/:id`, async(req, res) => {
     let liste = req.body;
     connection.query('Update Listes set label = ?, description = ? where id = ?;', [liste.label, liste.description, listeId], function(error, results) {
         if (error) throw error;
+        console.log("Liste " + listeId + " modifiée.")
         res.json(liste);
     });
 });

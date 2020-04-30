@@ -43,6 +43,7 @@ todosApi.put(`/:id`, async(req, res) => {
     let todo = req.body;
     connection.query('Update Todos set label = ?, isDone = ? where id = ?;', [todo.label, todo.isDone, todoId], function(error, results) {
         if (error) throw error;
+        console.log("Tâche " + todoId + " modifiée.")
         res.json(todo);
     });
 });
