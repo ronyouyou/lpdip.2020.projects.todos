@@ -1,21 +1,11 @@
 'use strict';
 
 const express = require(`express`);
-const path = require(`path`);
-const fs = require(`fs-extra`);
 const todosApi = express.Router();
+const connection = require('./database.js');
 
-const mysql = require('mysql2');
-
-const connection = mysql.createConnection({
-    host: '172.17.0.3', //ip de 'db'
-    user: 'root',
-    password: 'root',
-    database: 'ListTodo'
-});
-
-todosApi.get(`/`, async(req, res) => {
-    connection.query('SELECT * from Todos;', function(error, results) {
+todosApi.get(`/`, async (req, res) => {
+    connection.query('SELECT * from Todos;', function (error, results) {
         if (error) throw error;
         results.forEach(todo => {
             if (todo.isDone == 0) {
@@ -28,30 +18,24 @@ todosApi.get(`/`, async(req, res) => {
     });
 });
 
-todosApi.post(`/`, async(req, res) => {
-    let todo = req.body;
-    connection.query('INSERT into Todos(label, idList, isDone) values(?,?,?);', [todo.label, todo.idList, false], function(error, results) {
+todosApi.post(`/`, async (req, res) => {
+    connection.query('INSERT into Todos(label, idList, isDone) values(?,?,?);', [req.body.label, req.body.idList, false], function (error, results) {
         if (error) throw error;
-        todo.id = results.insertId
-        todo.isDone = false;
-        res.json(todo);
+        req.body.id = results.insertId
+        req.body.isDone = false;
+        res.json(req.body);
     });
 });
 
-todosApi.put(`/:id`, async(req, res) => {
-    let todoId = req.params.id;
-    let todo = req.body;
-    connection.query('Update Todos set label = ?, isDone = ? where id = ?;', [todo.label, todo.isDone, todoId], function(error, results) {
+todosApi.put(`/:id`, async (req, res) => {
+    connection.query('Update Todos set label = ?, isDone = ? where id = ?;', [req.body.label, req.body.isDone, req.params.id], function (error, results) {
         if (error) throw error;
-        console.log("Tâche " + todoId + " modifiée.")
-        res.json(todo);
+        res.json(req.body);
     });
 });
 
-todosApi.delete(`/:id`, async(req, res) => {
-    let todoId = req.params.id;
-    connection.query('DELETE from Todos where id=?;', [todoId], function(error, results) {
-        console.log("Tâche " + todoId + " supprimée.")
+todosApi.delete(`/:id`, async (req, res) => {
+    connection.query('DELETE from Todos where id=?;', [req.params.id], function (error, results) {
         res.json(results);
     });
 });

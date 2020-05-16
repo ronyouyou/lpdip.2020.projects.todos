@@ -5,14 +5,6 @@ const fs = require(`fs-extra`);
 const app = express();
 const port = 3001;
 const api = require(`./apis/index.js`);
-const mysql = require('mysql2');
-
-const connection = mysql.createConnection({
-    host: '172.17.0.3', //ip de 'db'
-    user: 'root',
-    password: 'root',
-    database: 'ListTodo'
-});
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
