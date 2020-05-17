@@ -19,7 +19,9 @@ Puis saisir les commandes suivantes :
   - docker run -it --rm --name projects.todos -v "$PWD":/app -w /app/server --link containerMysql:db -p 3100:3001 node:13 bash
   - yarn dev
 
-Pour finir, rendez-vous sur l’application web en tapant http://192.168.99.100:3100 ou bien localhost:3100. Voilà, vous pouvez créer vos listes de tâches !
+Pour finir, rendez-vous sur l’application web en tapant http://192.168.99.100:3100 ou bien localhost:3100. 
+
+Voilà, vous pouvez créer vos listes de tâches !
 
 
 # Le projet
