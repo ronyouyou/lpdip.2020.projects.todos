@@ -12,7 +12,7 @@ Je vous invite ensuite à lancer les commandes suivantes :
   - docker run -p 3306:3306 --name containerMysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5
   - docker run --name container-phpmyadmin --link containerMysql:db -d -p 3333:80 phpmyadmin/phpmyadmin
 
-Une fois rendu ici, je vous invite, avec votre navigateur, à saisir http://192.168.99.100:3333 ou bien localhost:3333 afin de vous rendre sur PhpMyAdmin. Connectez vous avec root et le mot de passe que vous lui avez attribué à l’étape 1. Ensuite, dans la barre d'option en haut, rendez-vous sur l’onglet « Import » puis importez le script « ListTodo.sql » qui contient la base de donnée ainsi que l'ensemble des tables dans lesquelles se retourveront les données de l’application. Le fichier « ListTodo.sql » est disponible dans le répertoire du projet.
+Une fois rendu ici, je vous invite, avec votre navigateur, à saisir http://192.168.99.100:3333 ou bien localhost:3333 afin de vous rendre sur PhpMyAdmin. Connectez vous avec root et le mot de passe que vous lui avez attribué lors de la première commande. Ensuite, dans la barre d'option en haut, rendez-vous sur l’onglet « Import » puis importez le script « ListTodo.sql » qui contient la base de donnée ainsi que l'ensemble des tables dans lesquelles se retourveront les données de l’application. Le fichier « ListTodo.sql » est disponible dans le répertoire du projet.
 
 Puis saisir les commandes suivantes :
 
