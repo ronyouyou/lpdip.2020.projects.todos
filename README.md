@@ -1,6 +1,3 @@
-# Todos project
-Dans le cadre du confinement actuel, il est impossible que vous puissiez mener à bien les projets que vous aviez choisi en début de module. C'est pourquoi je vous ai préparé un projet qui remplacera le vôtre et qui tiendra compte de ce que nous avons pu voir en cours sans vous mettre en diffculté. Cela ne veut pas dire pour autant que vous n'aurez pas à réfléchir je vous rassure...
-
 # Comment utiliser l'application ?
 
 Rien de bien compliqué ! Assurez-vous déjà d’avoir le logiciel Docker d’installé sur vôtre machine et que ce dernier soit lancé.
@@ -12,7 +9,7 @@ Je vous invite ensuite à lancer les commandes suivantes :
   - docker run -p 3306:3306 --name containerMysql -e MYSQL_ROOT_PASSWORD=root -d mysql:5
   - docker run --name container-phpmyadmin --link containerMysql:db -d -p 3333:80 phpmyadmin/phpmyadmin
 
-Une fois rendu ici, avec votre navigateur, saisissez http://192.168.99.100:3333 ou bien localhost:3333 afin de vous rendre sur PhpMyAdmin. Connectez vous avec root et le mot de passe que vous lui avez attribué lors de la première commande. Ensuite, dans la barre d'option en haut, rendez-vous sur l’onglet « Importer » puis importez le script « ListTodo.sql » qui contient la base de données dans laquelle se retourveront les données de l’application. Le fichier « ListTodo.sql » est disponible à la racine du répertoire du projet.
+Une fois rendu ici, avec votre navigateur, saisissez http://192.168.99.100:3333 ou bien localhost:3333 afin de vous rendre sur PhpMyAdmin. Connectez-vous avec root et le mot de passe que vous lui avez attribué lors de la première commande. Ensuite, dans la barre d'option en haut, rendez-vous sur l’onglet « Importer » puis importez le script « ListTodo.sql » qui contient la base de données dans laquelle se retrouveront les données de l’application. Le fichier « ListTodo.sql » est disponible à la racine du répertoire du projet.
 
 Puis saisir les commandes suivantes :
 
@@ -23,6 +20,10 @@ Pour finir, rendez-vous sur l’application web en tapant http://192.168.99.100:
 
 Voilà, vous pouvez créer vos listes de tâches !
 
+----------------
+
+# Todos project
+Dans le cadre du confinement actuel, il est impossible que vous puissiez mener à bien les projets que vous aviez choisi en début de module. C'est pourquoi je vous ai préparé un projet qui remplacera le vôtre et qui tiendra compte de ce que nous avons pu voir en cours sans vous mettre en diffculté. Cela ne veut pas dire pour autant que vous n'aurez pas à réfléchir je vous rassure...
 
 # Le projet
 Ce projet est fonctionnellement assez simple, il s'agit d'une application de gestion de tâches à faire (todos). Il a la particularité de pouvoir gérer plusieurs listes ayant chacune sons propre ensemble de tâches.
